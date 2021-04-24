@@ -1,9 +1,11 @@
 <?php
     class Account {
 
+        private $con;
         private $errorArray;
 
-        public function __construct() {
+        public function __construct($con) {
+            $this->con = $con;
             $this->errorArray = Array();
         }
 
@@ -15,12 +17,30 @@
             $this->validatePasswords($pw, $pw2);
 
             if(empty($this->errorArray)) {
-                return true;
-                //insert in to DB
+                return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
             } else {
                 return false;
             }
         }
+
+        private function insertUserDetails($un, $fn, $ln, $em, $pw){
+            $pw = hash("sha512", $pw);
+            $profilePic = "assets/images/prifile-pics/default.png";
+            $date = date("Y-m-d H:i:s");
+
+            $query = $this->con->prepare("INSERT INTO users (username, firstName, lastName, email, password, signUpDate, profilePic) 
+                                    VALUES (:un, :fn, :ln, :em, :pw, :d, :pic)");
+            $query->bindParam(":un", $un);
+            $query->bindParam(":fn", $fn);
+            $query->bindParam(":ln", $ln);
+            $query->bindParam(":em", $em);
+            $query->bindParam(":pw", $pw);
+            $query->bindParam(":d", $date);
+            $query->bindParam(":pic", $profilePic);
+            
+            return $query->execute();
+        }
+
 
         public function getError($error) {
             if(!in_array($error, $this->errorArray)) {
@@ -35,7 +55,13 @@
                 return;
             }
 
-            //check if username exists
+            $query = $this->con->prepare("SELECT username FROM users WHERE username=:un");
+            $query->bindParam(":un", $un);
+            $query->execute();
+            
+            if($query->rowCount() != 0) {
+                array_push($this->errorArray, Constants::$usernameTaken);
+            }
         }
         
         private function validateFirstName($fn) {
@@ -63,7 +89,13 @@
                 return;
             }
 
-            //is email already used
+            $query = $this->con->prepare("SELECT email FROM users WHERE email=:em");
+            $query->bindParam(":em", $em);
+            $query->execute();
+            
+            if($query->rowCount() != 0) {
+                array_push($this->errorArray, Constants::$emailTaken);
+            }
         }
         
         private function validatePasswords($pw, $pw2) {

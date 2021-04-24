@@ -1,11 +1,12 @@
 <?php
-    include("includes/classes/Account.php");
-    include("includes/classes/Constants.php");
+    require_once("includes/config.php");
+    require_once("includes/classes/Account.php");
+    require_once("includes/classes/Constants.php");
 
-    $account = new Account();
+    $account = new Account($con);
 
-    include("includes/handlers/register-handler.php");
-    include("includes/handlers/login-handler.php");
+    require_once("includes/handlers/register-handler.php");
+    require_once("includes/handlers/login-handler.php");
 
     function getInputValue($name) {
         if(isset($_POST[$name])) {
@@ -44,6 +45,7 @@
             <h2>Create your free account</h2>
             <p>
                 <?php echo $account->getError(Constants::$usernameCharacters); ?>
+                <?php echo $account->getError(Constants::$usernameTaken); ?>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="e.g. JohnSmith" value="<?=getInputValue('username') ?>" required>
             </p>
@@ -60,6 +62,7 @@
             <p>
                 <?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
                 <?php echo $account->getError(Constants::$emailInvalid); ?>
+                <?php echo $account->getError(Constants::$emailTaken); ?>
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="e.g. JohnSmith@gmail.com" value="<?=getInputValue('email') ?>" required>
             </p>
