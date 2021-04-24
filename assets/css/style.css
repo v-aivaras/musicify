@@ -1,0 +1,89 @@
+body,
+body * {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* register.php background */
+body.register {
+    background-color: #000;
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#loginContainer * {
+    color: #fff;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1rem;
+}
+
+#loginContainer {
+    width: 80%;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#inputContainer {
+    width: 400px;
+    padding: 44px;
+    float: left;
+    border-right: 1px solid #ccc;
+}
+
+#inputContainer h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+#inputContainer input {
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    height: 25px;
+    line-height: 25px;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+}
+
+#inputContainer ::placeholder {
+    color: #ccc;
+    font-size: 0.8rem;
+}
+
+#inputContainer label {
+    color: #eee;
+    font-size: 0.9rem;
+}
+
+#inputContainer input:focus {
+    outline: none;
+    border-bottom: 1px solid #fff;
+}
+
+#inputContainer button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 200px;
+    color: #ccc;
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin: 20px auto;
+    height: 40px;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+#inputContainer button:hover {
+    cursor: pointer;
+    color: #fff;
+    border: 1px solid #fff;
+}
