@@ -1,3 +1,13 @@
+<?php
+    require_once("includes/config.php");
+    if(isset($_SESSION['userLoggedIn'])) {
+        $userLoggedIn = $_SESSION['userLoggedIn'];
+    } else {
+        header("Location:register.php");
+    }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +19,8 @@
 
 </head>
 <body>
-
+    <h3>Hello <?=$userLoggedIn ?></h3>
+    <a href="logout.php">Log out</a>
     <script src="assets/js/script.js"></script>
 </body>
 </html>

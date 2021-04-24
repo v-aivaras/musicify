@@ -1,5 +1,13 @@
 <?php
 if(isset($_POST['loginButton'])) {
-    //login
+    $username = strip_tags($_POST['loginUsername']);
+    $password = strip_tags($_POST['loginPassword']);
+
+    $result = $account->login($username, $password);
+
+    if($result) {
+        $_SESSION['userLoggedIn'] = $username;
+        header("Location: index.php");
+    }
 }
 ?>

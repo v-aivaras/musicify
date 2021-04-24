@@ -23,6 +23,21 @@
             }
         }
 
+        public function login($un, $pw) {
+            $pw = hash("sha512", $pw);
+            $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+            $query->bindParam(":un", $un);
+            $query->bindParam(":pw", $pw);
+            $query->execute();
+
+            if($query->rowCount() !== 0) {
+                return true;
+            } else {
+                array_push($this->errorArray, Constants::$loginFailed);
+                return false;
+            }
+        }
+
         private function insertUserDetails($un, $fn, $ln, $em, $pw){
             $pw = hash("sha512", $pw);
             $profilePic = "assets/images/prifile-pics/default.png";
