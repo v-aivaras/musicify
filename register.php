@@ -22,9 +22,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musicify</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="register">
+
+    <?php
+        if(isset($_POST['registerButton'])) {
+            echo '
+                <script>
+                    $(document).ready(function() {
+                        $("#loginForm").hide();
+                        $("#registerForm").show();
+                    }); 
+                </script>'; 
+        } else {
+            echo '
+                <script>
+                    $(document).ready(function() {
+                        $("#loginForm").show();
+                        $("#registerForm").hide();
+                    }); 
+                </script>'; 
+
+        }
+
+    ?>
 
     <div id="loginContainer">
 
@@ -42,6 +65,11 @@
                     <input type="password" id="loginPassword" name="loginPassword" placeholder="*******" required>
                 </p>
                 <button type="submit" name="loginButton">Log in</button>
+
+                <div class="hasAccountText">
+                    <span id="hideLogin">Don't have an account yet? Signup here.</span>
+                </div>
+
             </form>
 
 
@@ -88,10 +116,15 @@
                     <input type="password" id="password2" name="password2" placeholder="*******" required>
                 </p>
                 <button type="submit" name="registerButton">Sign up</button>
+
+                <div class="hasAccountText">
+                    <span id="hideRegister">Already have an account? Login here.</span>
+                </div>
             </form>
 
         </div>
     </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>

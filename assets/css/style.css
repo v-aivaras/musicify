@@ -29,6 +29,11 @@ body.register {
     position: relative;
 }
 
+#registerForm,
+#loginForm {
+    display: none;
+}
+
 #inputContainer {
     width: 400px;
     padding: 44px;
@@ -65,6 +70,7 @@ body.register {
 
 #inputContainer input:focus {
     outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid #fff;
 }
 
@@ -86,4 +92,20 @@ body.register {
     cursor: pointer;
     color: #fff;
     border: 1px solid #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hasAccountText {
+    text-align: center;
+}
+
+.hasAccountText span {
+    font-weight: bold;
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.hasAccountText span:hover {
+    cursor: pointer;
+    opacity: 1;
 }
