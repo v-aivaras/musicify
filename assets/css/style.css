@@ -6,27 +6,28 @@ body * {
     box-sizing: border-box;
 }
 
-/* register.php background */
+/* register.php  */
 body.register {
     background-color: #000;
     background-image: url("../images/bg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    height: 100%;
 }
 
 #loginContainer * {
     color: #fff;
     font-family: Helvetica, Arial, sans-serif;
     font-weight: normal;
-    line-height: 1rem;
 }
 
 #loginContainer {
     width: 80%;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 40px auto;
     position: relative;
+    min-height: 500px;
 }
 
 #registerForm,
@@ -36,7 +37,7 @@ body.register {
 
 #inputContainer {
     width: 400px;
-    padding: 44px;
+    padding: 40px;
     float: left;
     border-right: 1px solid #ccc;
 }
@@ -108,4 +109,34 @@ body.register {
 .hasAccountText span:hover {
     cursor: pointer;
     opacity: 1;
+}
+
+#loginText {
+    padding: 40px;
+    display: table-cell;
+}
+
+#loginText h1 {
+    color: #07d159;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#loginText h2 { 
+    margin: 20px 0;
+    font-size: 1.4rem;
+}
+
+#loginText li {
+    font-size: 1rem;
+    list-style-type: none;
+    padding: 5px 5px 5px 28px;
+    background: url("../images/icons/checkmark.png") no-repeat;
+}
+
+#inputContainer .errorMessage {
+    color: #07d159;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 10px;
 }
