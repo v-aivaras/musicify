@@ -27,7 +27,24 @@
         <div id="nowPlayingBar">
             
             <div id="nowPlayingLeft">
+                <div class="content">
 
+                    <span class="albumLink">
+                        <!-- TO DO replace image -->
+                        <img src="#" alt="" class="albumArtwork">
+
+                    </span>
+
+                    <div class="trackInfo">
+                        <span class="trackName">
+                            <span>track</span>
+                        </span>
+                        <span class="artistName">
+                            <span>artist</span>
+                        </span>
+                    </div>
+
+                </div>
             </div>
 
             <div id="nowPlayingCenter">
@@ -62,12 +79,36 @@
 
                     </div>
 
+                    <div class="playbackBar">
+                        <span class="progressTime current">0.00</span>
+                        <div class="progressBar">
+                            <div class="progressBarBg">
+                                <div class="progress">
+
+                                </div>
+                            </div>
+                        </div>
+                        <span class="progressTime remaining">0.00</span>
+                    </div>
+
                 </div>
 
             </div>
 
             <div id="nowPlayingRight">
-                
+                <div class="volumeBar">
+                    <button class="controlButton volume" title="Volume" alt="Volume">
+                        <img src="assets/images/icons/volume.png" alt="">
+                    </button>
+
+                    <div class="progressBar">
+                            <div class="progressBarBg">
+                                <div class="progress">
+
+                                </div>
+                            </div>
+                        </div>
+                </div>
             </div>
 
         </div>
