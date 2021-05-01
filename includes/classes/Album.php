@@ -46,5 +46,19 @@
 
             return $query->rowCount();
         }
+
+        public function getSongIds() {
+            $query = $this->con->prepare("SELECT id FROM songs WHERE album=:id ORDER BY albumOrder ASC");
+            $query->bindParam(":id", $this->id);
+            $query->execute();
+
+            $songArray  = array();
+
+            while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                array_push($songArray, $row['id']);
+            }
+
+            return $songArray;
+        }
     }
 ?>

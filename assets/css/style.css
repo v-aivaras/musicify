@@ -289,8 +289,89 @@ album.php styles
     font-weight: 200;
 }
 
+.trackList {
+    padding: 0;
+}
 
+.trackListRow {
+    min-height: 70px;
+    padding: 10px;
+    list-style: none;
+}
 
+.trackListRow span {
+    color: #a0a0a0;
+    font-weight: 200;
+}
+
+.trackListRow:hover {
+    background-color: #282828;
+}
+
+.trackListRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.trackListRow .trackCount img {
+    width: 20px;
+    visibility: hidden;
+    position: absolute;
+    cursor: pointer;
+}
+
+.trackListRow:hover .trackCount img {
+    visibility: visible;
+}
+
+.trackListRow .trackCount span {
+    visibility: visible;
+}
+
+.trackListRow:hover .trackCount span {
+    visibility: hidden;
+}
+
+.trackListRow .trackCount {
+    width: 8%;
+    float: left;
+}
+
+.trackListRow .trackInfo {
+    width: 75%;
+    float: left;
+}
+
+.trackListRow .trackInfo .trackName {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.trackListRow .trackInfo span {
+    display: block;
+}
+
+.trackListRow .trackOptions {
+    float: left;
+    width: 5%;
+    text-align: right;
+}
+
+.trackListRow .trackOptions img {
+    width: 15px;
+    visibility: hidden;
+}
+
+.trackListRow:hover .trackOptions img {
+    width: 15px;
+    visibility: visible;
+}
+
+.trackListRow .trackDuration {
+    width: 12%;
+    float: left;
+    text-align: right;
+}
 
 /* -----------------------------------------
 Bottom palyer bar styles
