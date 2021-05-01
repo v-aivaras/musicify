@@ -7,6 +7,12 @@ body * {
     color: #fff;
 }
 
+body {
+    background-color: #181818;
+    font-weight: 1rem;
+    min-width: 720px;
+}
+
 /* -----------------------------------------
 register.php
 */
@@ -147,6 +153,16 @@ index.php main content styles
 #topContainer {
     min-height: 100%;
     min-width: 100%;
+}
+
+#mainViewContainer {
+    margin-left: 220px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
 }
 
 
