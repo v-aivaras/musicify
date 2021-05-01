@@ -255,10 +255,39 @@ left navbar styles
  }
 
 
+/* -----------------------------------------
+album.php styles
+*/
+.entityInfo {
+    padding: 40px 0 10px 0;
+    display: inline-block;
+    width: 100%;
+}
 
+.entityInfo .leftSection {
+    float: left;
+    width: 30%;
+    max-width: 250px;
+}
 
+.entityInfo .leftSection img {
+    width: 100%;
+}
 
+.entityInfo .rightSection {
+    width: 69%;
+    float: left;
+    padding: 5px 10px 5px 40px;
+}
 
+.entityInfo .rightSection h2 {
+    margin: 0 0 15px;
+}
+
+.entityInfo .rightSection p {
+    color: #a0a0a0;
+    font-weight: 200;
+}
 
 
 
