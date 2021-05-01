@@ -9,8 +9,12 @@ body * {
 
 body {
     background-color: #181818;
-    font-weight: 1rem;
+    font-size: 0.95rem;
     min-width: 720px;
+}
+
+a {
+    text-decoration: none;
 }
 
 /* -----------------------------------------
@@ -165,7 +169,38 @@ index.php main content styles
     padding: 0 20px;
 }
 
+.pageHeadingBig {
+    padding: 20px;
+    text-align: center;
+}
 
+.gridViewContainer .gridViewItem {
+    display: inline-block;
+    margin-right: 20px;
+    width: 29%;
+    max-width: 200px;
+    min-width: 150px;
+    margin-bottom: 20px;
+}
+
+.gridViewItem:hover .gridViewInfo {
+    color: #fff;
+}
+
+.gridViewContainer .gridViewItem img {
+    width: 100%;
+}
+
+.gridViewContainer .gridViewInfo {
+    color: #a0a0a0;
+    font-weight: 300;
+    text-align: center;
+    padding: 5px 0;
+    letter-spacing: 1px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
 /* -----------------------------------------
 left navbar styles
@@ -205,12 +240,10 @@ left navbar styles
 }
 
 .navBar .navItem .navItemLink {
-    text-decoration: none;
     color: #a0a0a0;
 }
 
 .navBar .navItem .navItemLink:hover {
-    text-decoration: none;
     color: #fff;
 }
 
