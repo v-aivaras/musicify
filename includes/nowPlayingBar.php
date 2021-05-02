@@ -1,5 +1,5 @@
 <?php
-    $songQuery = $con->prepare("SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+    $songQuery = $con->prepare("SELECT id FROM musicify_songs ORDER BY RAND() LIMIT 10");
     $songQuery->execute();
 
     $resultArray = array();
@@ -14,13 +14,23 @@
 <script>
     $(document).ready(function() {
         currentPlaylist = <?= $jsonArray ?>;
-        console.log(currentPlaylist);
         audioElement = new Audio();
         setTrack(currentPlaylist[0], currentPlaylist, false);
     });
 
     function setTrack(trackId, newPlaylist, play) {
-        audioElement.setTrack("assets/music/bensound-anewbeginning.mp3");
+        
+        $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
+            const track = JSON.parse(data);
+            console.log(track);
+            $(".trackName span").text(track.title);
+            $(".artistName span").text(track.name);
+            $(".albumLink img").attr("src", track.artworkPath);
+
+            audioElement.setTrack(track.path);
+            audioElement.play();
+        }); 
+
         if(play) {
             audioElement.play();
         }
@@ -47,17 +57,16 @@
             <div class="content">
 
                 <span class="albumLink">
-                    <!-- TO DO replace image -->
-                    <img src="#" alt="" class="albumArtwork">
+                    <img src="" alt="Album Artwork" class="albumArtwork">
 
                 </span>
 
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span>track</span>
+                        <span></span>
                     </span>
                     <span class="artistName">
-                        <span>artist</span>
+                        <span></span>
                     </span>
                 </div>
 
