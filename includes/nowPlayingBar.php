@@ -1,4 +1,44 @@
-<!-- Bottom player -->
+<?php
+    $songQuery = $con->prepare("SELECT id FROM songs ORDER BY RAND() LIMIT 10");
+    $songQuery->execute();
+
+    $resultArray = array();
+    while($row = $songQuery->fetch(PDO::FETCH_ASSOC)) {
+        array_push($resultArray, $row['id']);
+        echo $row['id'];
+    }
+
+    $jsonArray = json_encode($resultArray);
+?>
+
+<script>
+    $(document).ready(function() {
+        currentPlaylist = <?= $jsonArray ?>;
+        console.log(currentPlaylist);
+        audioElement = new Audio();
+        setTrack(currentPlaylist[0], currentPlaylist, false);
+    });
+
+    function setTrack(trackId, newPlaylist, play) {
+        audioElement.setTrack("assets/music/bensound-anewbeginning.mp3");
+        if(play) {
+            audioElement.play();
+        }
+    }
+
+    function playSong() {
+        $(".controlButton.play").hide();
+        $(".controlButton.pause").show();
+        audioElement.play();
+    }
+
+    function pauseSong() {
+        $(".controlButton.play").show();
+        $(".controlButton.pause").hide();
+        audioElement.pause();
+    }
+
+</script>
 <div id="nowPlayingBarContainer">
     <div id="nowPlayingBar">
         
@@ -38,11 +78,11 @@
                         <img src="assets/images/icons/previous.png" alt="Previous">
                     </button>
 
-                    <button class="controlButton play" title="Play">
+                    <button class="controlButton play" title="Play" onclick="playSong()">
                         <img src="assets/images/icons/play.png" alt="Play">
                     </button>
 
-                    <button class="controlButton pause" title="Pause" style="display:none">
+                    <button class="controlButton pause" title="Pause" style="display:none" onclick="pauseSong()">
                         <img src="assets/images/icons/pause.png" alt="Pause">
                     </button>
 

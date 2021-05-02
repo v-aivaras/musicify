@@ -338,7 +338,7 @@ album.php styles
 }
 
 .trackListRow .trackInfo {
-    width: 75%;
+    width: 80%;
     float: left;
 }
 
@@ -353,8 +353,8 @@ album.php styles
 
 .trackListRow .trackOptions {
     float: left;
-    width: 5%;
-    text-align: right;
+    width: 6%;
+    text-align: center;
 }
 
 .trackListRow .trackOptions img {
@@ -368,7 +368,7 @@ album.php styles
 }
 
 .trackListRow .trackDuration {
-    width: 12%;
+    width: 6%;
     float: left;
     text-align: right;
 }
