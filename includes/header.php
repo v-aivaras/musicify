@@ -18,6 +18,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musicify</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/audio.js"></script>
 
 </head>
 <body>
