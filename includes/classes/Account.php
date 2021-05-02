@@ -25,7 +25,7 @@
 
         public function login($un, $pw) {
             $pw = hash("sha512", $pw);
-            $query = $this->con->prepare("SELECT * FROM users WHERE username=:un AND password=:pw");
+            $query = $this->con->prepare("SELECT * FROM musicify_users WHERE username=:un AND password=:pw");
             $query->bindParam(":un", $un);
             $query->bindParam(":pw", $pw);
             $query->execute();
@@ -43,7 +43,7 @@
             $profilePic = "assets/images/prifile-pics/default.png";
             $date = date("Y-m-d H:i:s");
 
-            $query = $this->con->prepare("INSERT INTO users (username, firstName, lastName, email, password, signUpDate, profilePic) 
+            $query = $this->con->prepare("INSERT INTO musicify_users (username, firstName, lastName, email, password, signUpDate, profilePic) 
                                     VALUES (:un, :fn, :ln, :em, :pw, :d, :pic)");
             $query->bindParam(":un", $un);
             $query->bindParam(":fn", $fn);
@@ -70,7 +70,7 @@
                 return;
             }
 
-            $query = $this->con->prepare("SELECT username FROM users WHERE username=:un");
+            $query = $this->con->prepare("SELECT musicify_username FROM users WHERE username=:un");
             $query->bindParam(":un", $un);
             $query->execute();
             
@@ -104,7 +104,7 @@
                 return;
             }
 
-            $query = $this->con->prepare("SELECT email FROM users WHERE email=:em");
+            $query = $this->con->prepare("SELECT email FROM musicify_users WHERE email=:em");
             $query->bindParam(":em", $em);
             $query->execute();
             

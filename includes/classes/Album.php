@@ -12,7 +12,7 @@
             $this->con = $con;
             $this->id = $id;
 
-            $query = $con->prepare("SELECT * FROM albums WHERE id=:id");
+            $query = $con->prepare("SELECT * FROM musicify_albums WHERE id=:id");
             $query->bindParam(":id", $this->id);
             $query->execute();
 
@@ -40,7 +40,7 @@
         }
 
         public function getNumberOfSongs() {
-            $query = $this->con->prepare("SELECT id FROM songs WHERE album=:id");
+            $query = $this->con->prepare("SELECT id FROM musicify_songs WHERE album=:id");
             $query->bindParam(":id", $this->id);
             $query->execute();
 
@@ -48,7 +48,7 @@
         }
 
         public function getSongIds() {
-            $query = $this->con->prepare("SELECT id FROM songs WHERE album=:id ORDER BY albumOrder ASC");
+            $query = $this->con->prepare("SELECT id FROM musicify_songs WHERE album=:id ORDER BY albumOrder ASC");
             $query->bindParam(":id", $this->id);
             $query->execute();
 

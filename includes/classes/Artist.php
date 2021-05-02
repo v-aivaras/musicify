@@ -9,7 +9,7 @@
             $this->con = $con;
             $this->id = $id;
 
-            $query = $con->prepare("SELECT * FROM artists WHERE id=:id");
+            $query = $con->prepare("SELECT * FROM musicify_artists WHERE id=:id");
             $query->bindParam(":id", $this->id);
             $query->execute();
 

@@ -5,7 +5,7 @@
 <div class="gridViewContainer">
 
     <?php
-        $albumQuery = $con->prepare("SELECT * FROM albums ORDER BY RAND() LIMIT 10");
+        $albumQuery = $con->prepare("SELECT * FROM musicify_albums ORDER BY RAND() LIMIT 10");
         $albumQuery->execute();
 
         while($row = $albumQuery->fetch(PDO::FETCH_ASSOC)) {

@@ -15,7 +15,7 @@
             $this->con = $con;
             $this->id = $id;
 
-            $query = $con->prepare("SELECT * FROM songs WHERE id=:id");
+            $query = $con->prepare("SELECT * FROM musicify_songs WHERE id=:id");
             $query->bindParam(":id", $this->id);
             $query->execute();
 
