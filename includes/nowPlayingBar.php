@@ -69,17 +69,56 @@
         audioElement.setTime(seconds);
     }
 
+    function prevSong() {
+        if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+            audioElement.setTime(0);
+        } else {
+            currentIndex--;
+            setTrack(currentPlaylist[currentIndex], currentPlaylist, true);
+        }
+    }
+
+    function nextSong() {
+        if(repeat == true) {
+            audioElement.setTime(0);
+            playSong();
+            return;
+        }
+
+        if(currentIndex == currentPlaylist.length - 1) {
+            currentIndex = 0;
+        } else {
+            currentIndex++;
+        }
+
+        let trackToPlay = currentPlaylist[currentIndex];
+        setTrack(trackToPlay, currentPlaylist, true);
+    }
+
+    function setRepeat() {
+        repeat = !repeat;
+        let imageName = repeat ? "repeat-active.png" : "repeat.png";
+        $(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName);
+    }
+
+    function setMute() {
+        audioElement.audio.muted = !audioElement.audio.muted;
+        let imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
+        $(".controlButton.volume img").attr("src", "assets/images/icons/" + imageName);
+    }
+
     function setTrack(trackId, newPlaylist, play) {
-        
+        currentIndex = currentPlaylist.indexOf(trackId);
+        pauseSong();
+
         $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
-            const track = JSON.parse(data);
-            console.log(track);
+            let track = JSON.parse(data);
             $(".trackName span").text(track.title);
             $(".artistName span").text(track.name);
             $(".albumLink img").attr("src", track.artworkPath);
 
             audioElement.setTrack(track);
-            //playSong();
+            playSong();
         }); 
 
         if(play) {
@@ -138,7 +177,7 @@
                         <img src="assets/images/icons/shuffle.png" alt="Shuffle">
                     </button>
 
-                    <button class="controlButton previous" title="Previous">
+                    <button class="controlButton previous" title="Previous" onclick="prevSong()">
                         <img src="assets/images/icons/previous.png" alt="Previous">
                     </button>
 
@@ -150,11 +189,11 @@
                         <img src="assets/images/icons/pause.png" alt="Pause">
                     </button>
 
-                    <button class="controlButton next" title="Next">
+                    <button class="controlButton next" title="Next" onclick="nextSong()">
                         <img src="assets/images/icons/next.png" alt="Next">
                     </button>
 
-                    <button class="controlButton repeat" title="Repeat">
+                    <button class="controlButton repeat" title="Repeat" onclick="setRepeat()">
                         <img src="assets/images/icons/repeat.png" alt="Repeat">
                     </button>
 
@@ -178,7 +217,7 @@
             <!-- Bottom player right part -->
         <div id="nowPlayingRight">
             <div class="volumeBar">
-                <button class="controlButton volume" title="Volume" alt="Volume">
+                <button class="controlButton volume" title="Volume" alt="Volume" onclick="setMute()">
                     <img src="assets/images/icons/volume.png" alt="">
                 </button>
 
