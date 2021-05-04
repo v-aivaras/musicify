@@ -16,7 +16,58 @@
         currentPlaylist = <?= $jsonArray ?>;
         audioElement = new Audio();
         setTrack(currentPlaylist[0], currentPlaylist, false);
+        updateVolumeProgressBar(audioElement.audio);
+
+        $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+            e.preventDefault();
+        })
+
+        $(".playbackBar .progressBar").mousedown(function() {
+            mouseDown = true;
+        });
+
+        $(".playbackBar .progressBar").mousemove(function(e) {
+            if(mouseDown) {
+                timeFromOffset(e, this);
+            }
+        });
+
+        $(".playbackBar .progressBar").mouseup(function(e) {
+            timeFromOffset(e, this);
+        });
+
+
+        $(".volumeBar .progressBar").mousedown(function() {
+            mouseDown = true;
+        });
+
+        $(".volumeBar .progressBar").mousemove(function(e) {
+            if(mouseDown) {
+                let percentage = e.offsetX / $(this).width();
+                if(percentage >= 0 && percentage <= 1) {
+                    audioElement.audio.volume = percentage;
+                }
+            }
+        });
+
+        $(".volumeBar .progressBar").mouseup(function(e) {
+            let percentage = e.offsetX / $(this).width();
+            if(percentage >= 0 && percentage <= 1) {
+                audioElement.audio.volume = percentage;
+            }
+        });
+
+
+        $(document).mouseup(function() {
+            mouseDown = false;
+        });
     });
+
+    function timeFromOffset(mouse, progressBar) {
+        let percentage = mouse.offsetX / $(progressBar).width() * 100;
+        let seconds = audioElement.audio.duration * (percentage / 100);
+        audioElement.setTime(seconds);
+    }
 
     function setTrack(trackId, newPlaylist, play) {
         
@@ -28,7 +79,7 @@
             $(".albumLink img").attr("src", track.artworkPath);
 
             audioElement.setTrack(track);
-            audioElement.play();
+            //playSong();
         }); 
 
         if(play) {
