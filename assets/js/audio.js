@@ -1,8 +1,10 @@
 let currentPlaylist = [];
+let shufflePlaylist = [];
 let currentIndex = 0;
 let audioElement;
 let mouseDown = false;
 let repeat = false;
+let shuffle = false;
 
 function formatTime(seconds) {
     let time = Math.round(seconds);
