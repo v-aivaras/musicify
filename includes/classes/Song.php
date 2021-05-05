@@ -28,6 +28,10 @@
             $this->path = $this->sqlData['path'];
         }
 
+        public function getId() {
+            return $this->id;
+        }
+
         public function getTitle() {
             return $this->title;
         }

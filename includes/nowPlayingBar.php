@@ -150,6 +150,7 @@
 
         $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
             let track = JSON.parse(data);
+            console.log(track);
             $(".trackName span").text(track.title);
             $(".artistName span").text(track.name);
             $(".albumLink img").attr("src", track.artworkPath);
