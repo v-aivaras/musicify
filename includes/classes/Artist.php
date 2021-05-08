@@ -21,5 +21,18 @@
             return $this->name;
         }
 
+        public function getSongIds() {
+            $query = $this->con->prepare("SELECT id FROM musicify_songs WHERE artist=:id ORDER BY plays DESC");
+            $query->bindParam(":id", $this->id);
+            $query->execute();
+
+            $songArray  = array();
+
+            while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                array_push($songArray, $row['id']);
+            }
+
+            return $songArray;
+        }
     }
 ?>
