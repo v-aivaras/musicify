@@ -1,4 +1,6 @@
-<?php require_once("includes/header.php"); ?>
+<?php
+    require_once("includes/includedFiles.php");
+?>
 
 <h1 class="pageHeadingBig">You Might also like</h1>
 
@@ -15,16 +17,15 @@
             
             echo "
                 <div class='gridViewItem' alt='Artwork image'>
-                    <a href='album.php?id=$albumId'>
+                    <span role='link' tabindex='0' onclick='openPage(\"album.php?id=$albumId\")'>
                         <img src='$artworkImg'>
                         <div class='gridViewInfo'>
                             $albumTitle
                         </div>
-                    </a>
+                    </span>
                 </div>";
         }
 
     ?>
 
 </div>
-<?php require_once("includes/footer.php"); ?>

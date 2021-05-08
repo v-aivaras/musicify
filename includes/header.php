@@ -6,6 +6,10 @@
 
     if(isset($_SESSION['userLoggedIn'])) {
         $userLoggedIn = $_SESSION['userLoggedIn'];
+        echo "<script>
+                let userLoggedIn;
+                userLoggedIn = '$userLoggedIn';
+            </script>";
     } else {
         header("Location:register.php");
     }
