@@ -22,6 +22,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musicify</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="shortcut icon" href="assets/images/icons/favicon.ico" type="image/x-icon">
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/audio.js"></script>
@@ -36,7 +37,7 @@
         <div id="topContainer">
 
             <!-- Left nav -->
-            <?php  require_once("includes/navBarContainer.php");  ?>
+            <?php require_once("includes/navBarContainer.php");  ?>
 
             <!-- Main content -->
             <div id="mainViewContainer">
