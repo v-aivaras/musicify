@@ -155,11 +155,10 @@
             $(".albumLink img").attr("src", track.artworkPath);
 
             audioElement.setTrack(track);
+            if(play) {
+                playSong();
+            }
         }); 
-
-        if(play) {
-            playSong();
-        }
     }
 
     function playSong() {
