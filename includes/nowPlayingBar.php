@@ -150,9 +150,12 @@
 
         $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
             let track = JSON.parse(data);
-            $(".trackName span").text(track.title);
-            $(".artistName span").text(track.name);
-            $(".albumLink img").attr("src", track.artworkPath);
+            $(".trackInfo .trackName span").text(track.title);
+            $(".trackInfo .trackName span").attr("onclick", "openPage('album.php?id=" + track.albid + "')");
+            $(".trackInfo .artistName span").text(track.name);
+            $(".trackInfo .artistName span").attr("onclick", "openPage('artist.php?id=" + track.artid + "')");
+            $(".content .albumLink img").attr("src", track.artworkPath);
+            $(".content .albumLink img").attr("onclick", "openPage('album.php?id=" + track.albid + "')");
 
             audioElement.setTrack(track);
             if(play) {
@@ -186,16 +189,16 @@
             <div class="content">
 
                 <span class="albumLink">
-                    <img src="" alt="Album Artwork" class="albumArtwork">
+                    <img role="link" tabindex="0" src="" alt="Album Artwork" class="albumArtwork">
 
                 </span>
 
                 <div class="trackInfo">
                     <span class="trackName">
-                        <span></span>
+                        <span role="link" tabindex="0"></span>
                     </span>
                     <span class="artistName">
-                        <span></span>
+                    <span role="link" tabindex="0"></span>
                     </span>
                 </div>
 

@@ -540,14 +540,56 @@ Bottom palyer bar styles
 .borderBottom {
     border-bottom: 1px solid #939393;
     margin-bottom: 20px;
+    padding-bottom: 20px;
 }
 
 .trackListContainer h2,
-.gridViewContainer h2 {
+.gridViewContainer h2,
+.artistsContainer h2 {
     text-align: center;
     margin-bottom: 15px;
 }
 
 [role="link"] {
     cursor: pointer;
+}
+
+.searchContainer {
+    background-color: #242424;
+    padding: 20px 28px;
+    margin-bottom: 20px;
+}
+
+.searchContainer h4 {
+    font-weight: 300;
+}
+
+.searchContainer .searchInput {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    font-size: 50px;
+    letter-spacing: 2px;
+}
+
+.searchContainer input:focus {
+    outline: none;
+}
+
+.noResults {
+    margin-bottom: 20px;
+}
+
+.searchResultRow {
+    padding: 15px 10px;
+}
+
+.searchResultRow:hover {
+    background-color: #282828;
+}
+
+.searchResultRow .artistName span {
+    color: #fff;
 }

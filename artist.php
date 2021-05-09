@@ -59,7 +59,7 @@
             }
         ?>
         <script>
-            let tempSongIds = '<?= json_encode($songIdArray); ?>';
+            tempSongIds = '<?= json_encode($songIdArray); ?>';
             tempPlaylist = JSON.parse(tempSongIds);
         </script>
     </ul>

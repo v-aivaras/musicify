@@ -1,7 +1,7 @@
 <?php
     require_once("../../config.php");
     if(isset($_POST['songId'])) {
-        $query = $con->prepare("SELECT s.*, art.*, alb.id, alb.artworkPath 
+        $query = $con->prepare("SELECT s.*, art.*, art.id as artid, alb.id as albid, alb.artworkPath 
                                 FROM musicify_songs as s 
                                 JOIN musicify_artists as art 
                                 JOIN musicify_albums as alb 

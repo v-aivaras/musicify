@@ -14,6 +14,10 @@ $(document).ready(function() {
 });
 
 function openPage(url) {
+    if(timer != null) {
+        clearTimeout(timer);
+    }
+
     if(url.indexOf("?") == -1) {
         url = url + "?";
     }
