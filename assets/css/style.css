@@ -547,3 +547,7 @@ Bottom palyer bar styles
     text-align: center;
     margin-bottom: 15px;
 }
+
+[role="link"] {
+    cursor: pointer;
+}
