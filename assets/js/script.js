@@ -26,3 +26,18 @@ function openPage(url) {
     $("body").scrollTop(0);
     history.pushState(null, null, url);
 }
+
+function createPlaylist() {
+    let playlistName = prompt("Please enter the name of your playlist");
+
+    if(alert != null) {
+        $.post("includes/handlers/ajax/createPlaylist.php", {name: playlistName, username: userLoggedIn})
+        .done(function(error) {
+            if(error != "") {
+                alert(error);
+                return;
+            }
+            openPage("yourMusic.php");
+        });
+    }
+}
