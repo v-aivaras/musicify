@@ -28,7 +28,7 @@
                             <img src='assets/images/icons/playlist.png'>
                         </div>
                         <div class='gridViewInfo'>
-                            {$playlist->getName()}
+                            {$playlist->getName()} ({$playlist->getNumberOfSongs()})
                         </div>
                     </div>";
             }

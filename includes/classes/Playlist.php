@@ -52,5 +52,20 @@
 
             return $songArray;
         }
+
+        public static function getPlaylistDropdown($con, $username) {
+            $dropdown = '<select class="item playlist">
+                            <option value="">Add to playlist</option>';
+            $query = $con->prepare("SELECT id, name FROM musicify_playlists WHERE owner=:username");
+            $query->bindValue(":username", $username);
+            $query->execute();   
+            while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+                $id = $row['id'];
+                $name = $row['name'];
+                $dropdown .= "<option value='{$id}'>{$name}</option>";
+            }
+            
+            return $dropdown . '</select>';
+        }
     }
 ?>
