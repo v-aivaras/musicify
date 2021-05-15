@@ -42,7 +42,7 @@ $artist = $album->getArtist();
                         </div>
 
                         <div class='trackOptions'>
-                            <img src='assets/images/icons/more.png' class='optionsButton' alt='Options'>
+                            <img src='assets/images/icons/more.png' class='optionsButton' alt='Options' onclick='showOptionsMenu(this)'>
                         </div>
 
                         <div class='trackDuration'>
@@ -59,3 +59,9 @@ $artist = $album->getArtist();
         </script>
     </ul>
 </div>
+
+<nav class="optionsMenu">
+    <input type="hidden" class="songId">
+    <div class="item">Add to playlist</div>
+    <div class="item">Option 2</div>
+</nav>

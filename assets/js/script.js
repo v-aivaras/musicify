@@ -13,6 +13,17 @@ $(document).ready(function() {
 
 });
 
+$(document).click(function(click) {
+    let target = $(click.target);
+    if(!target.hasClass("item") && !target.hasClass("optionsButton")) {
+        hideOptionsMenu();
+    }
+});
+
+$(window).scroll(function() {
+    hideOptionsMenu();
+});
+
 function openPage(url) {
     if(timer != null) {
         clearTimeout(timer);
@@ -54,4 +65,24 @@ function deletePlaylist(playlistId) {
             openPage("yourMusic.php");
         });
     }
+}
+
+function hideOptionsMenu() {
+    let menu = $(".optionsMenu");
+    if(menu.css("display") != "none") {
+        menu.css("display", "none");
+    }
+}
+
+function showOptionsMenu(button) {
+    let menu = $(".optionsMenu");
+    let menuWidth = menu.width();
+
+    let scrollTop = $(window).scrollTop();
+    let elementOffset = $(button).offset().top;
+
+    let top = elementOffset - scrollTop;
+    let left = $(button).position().left;
+
+    menu.css({"top": top + "px", "left": left - menuWidth + "px", "display": "inline"});
 }
