@@ -64,5 +64,4 @@ $artist = $album->getArtist();
 <nav class="optionsMenu">
     <input type="hidden" class="songId">
     <?= Playlist::getPlaylistDropdown($con, $userLoggedIn->getUsername()) ?>
-    <div class="item">Option 2</div>
 </nav>
