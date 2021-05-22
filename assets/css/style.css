@@ -545,7 +545,8 @@ Bottom palyer bar styles
 
 .trackListContainer h2,
 .gridViewContainer h2,
-.artistsContainer h2 {
+.artistsContainer h2,
+.userDetails .container h2 {
     text-align: center;
     margin-bottom: 15px;
 }
@@ -641,4 +642,38 @@ Bottom palyer bar styles
     -webkit-appearance: none;
     -moz-appearance: none;
     outline: none;
+}
+
+.userInfo h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.userDetails {
+    padding: 20px;
+}
+
+.userdetails .container input[type="text"],
+.userdetails .container input[type="password"] {
+    display: block;
+    margin: 16px auto;
+    height: 50px;
+    width: 80%;
+    background-color: #1f1f1f;
+    border: none;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 20px;
+}
+
+.userdetails .container .button {
+    display: block;
+    margin: 16px auto;
+}
+
+.userDetails .container .message {
+    display: block;
+    color: #2ebd59;
+    font-weight: 300;
+    margin-left: 11%;
 }

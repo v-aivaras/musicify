@@ -116,3 +116,17 @@ function showOptionsMenu(button) {
 
     menu.css({"top": top + "px", "left": left - menuWidth + "px", "display": "inline"});
 }
+
+function updateEmail(emailClass) {
+	let emailValue = $("." + emailClass).val();
+	$.post("includes/handlers/ajax/updateEmail.php", { email: emailValue, username: userLoggedIn})
+	.done(function(response) {
+		$("." + emailClass).nextAll(".message").text(response);
+	})
+}
+
+function logout() {
+    $.post("includes/handlers/ajax/logout.php", function() {
+        location.reload();
+    });
+}
